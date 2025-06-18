@@ -4,10 +4,16 @@ import { createContext, useContext, useState } from 'react'
 const ThemeContext = createContext()
 
 function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState('')
+  const [theme, setTheme] = useState('light')
 
   function handleTheme() {
-    setTheme('dark')
+    setTheme(prev => {
+      if (prev === 'light') {
+        return 'dark'
+      } else {
+        return 'light'
+      }
+    })
   }
   return <ThemeContext.Provider value={{ theme, handleTheme }}>{children}</ThemeContext.Provider>
 }

@@ -1,8 +1,16 @@
+import Navbar from './components/Navbar'
+import ProductList from './components/ProductList'
+import { useTheme } from './context/ThemeContext'
+
 function App() {
+  const { theme } = useTheme()
+
   return (
-    <>
-      <h1>Light/Dark Theme</h1>
-    </>
+    <div
+      className={`${theme === 'light' ? 'dark' : ''}   bg-white dark:bg-zinc-800 h-screen w-full`}>
+      <Navbar />
+      <ProductList />
+    </div>
   )
 }
 
