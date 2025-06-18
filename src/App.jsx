@@ -7,7 +7,9 @@ function App() {
 
   return (
     <div
-      className={`${theme === 'light' ? 'dark' : ''}   bg-white dark:bg-zinc-800 h-screen w-full`}>
+      className={`${
+        theme === 'light' ? 'dark' : ''
+      }   bg-white dark:bg-zinc-800 h-screen w-full transition `}>
       <Navbar />
       <ProductList />
     </div>
