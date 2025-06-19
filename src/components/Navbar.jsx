@@ -12,6 +12,9 @@ function Navbar() {
           <h1 className="text-blue-500 dark:text-amber-200 text-2xl font-extrabold">GoingOn</h1>
         </Link>
 
+        <Link to={`/todos`}>
+          <h1 className="text-blue-500 dark:text-amber-200 text-xl ">Todos</h1>
+        </Link>
         <button
           className="text-2xl cursor-pointer dark:text-amber-200"
           onClick={handleTheme}>

@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage'
 import ProductDetail from './pages/ProductDetail'
 import ProductsPage from './pages/ProductsPage'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import Todos from './pages/Todos'
 
 function App() {
   const { theme } = useTheme()
@@ -24,6 +25,11 @@ function App() {
         <Route
           path="/products"
           element={<ProductsPage />}
+        />
+
+        <Route
+          path="/todos"
+          element={<Todos />}
         />
 
         <Route
