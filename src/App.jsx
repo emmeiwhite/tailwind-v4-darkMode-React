@@ -14,24 +14,23 @@ function App() {
         theme === 'light' ? 'dark' : ''
       }   bg-white dark:bg-zinc-800 h-screen w-full transition `}>
       <Navbar />
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={<HomePage />}
-          />
 
-          <Route
-            path="/products"
-            element={<ProductsPage />}
-          />
+      <Routes>
+        <Route
+          path="/"
+          element={<HomePage />}
+        />
 
-          <Route
-            path="/products/:id"
-            element={<ProductDetail />}
-          />
-        </Routes>
-      </BrowserRouter>
+        <Route
+          path="/products"
+          element={<ProductsPage />}
+        />
+
+        <Route
+          path="/products/:id"
+          element={<ProductDetail />}
+        />
+      </Routes>
     </div>
   )
 }
