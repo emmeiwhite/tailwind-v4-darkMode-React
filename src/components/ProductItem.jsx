@@ -1,8 +1,12 @@
+import { Link } from 'react-router-dom'
+
 function ProductItem({ product }) {
   console.log(product)
   const { title, price, rating, thumbnail } = product
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg shadow-gray-300 dark:shadow-amber-200">
+    <Link
+      to={`/products/${product.id}`}
+      className="max-w-sm rounded overflow-hidden shadow-lg shadow-gray-300 dark:shadow-amber-200">
       <img
         className="w-auto h-[200px]"
         src={thumbnail}
@@ -19,7 +23,7 @@ function ProductItem({ product }) {
           Rating: {rating}
         </span>
       </div>
-    </div>
+    </Link>
   )
 }
 export default ProductItem
