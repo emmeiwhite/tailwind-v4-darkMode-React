@@ -5,9 +5,9 @@ function Navbar() {
   const { theme, handleTheme } = useTheme()
 
   return (
-    <header className="py-5 dark:bg-zinc-800 dark:text-white  shadow-gray-50 dark:shadow-amber-100 dark:shadow">
+    <header className="py-5 shadow-lg shadow-gray-300 dark:shadow-amber-300 transition-all">
       <nav className="max-w-5xl mx-auto px-5 flex justify-between items-center">
-        <h1 className="text-blue-500 dark:text-amber-200 text-2xl font-extrabold">ThemeContext</h1>
+        <h1 className="text-blue-500 dark:text-amber-200 text-2xl font-extrabold">GoingOn</h1>
         <button
           className="text-2xl cursor-pointer dark:text-amber-200"
           onClick={handleTheme}>
