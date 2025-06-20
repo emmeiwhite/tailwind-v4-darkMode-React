@@ -78,7 +78,7 @@ function ThemeProvider({ children }) {
     }
 
     if (filter === 'active') {
-      return todo.completed
+      return !todo.completed
     }
 
     return todo // 'all'

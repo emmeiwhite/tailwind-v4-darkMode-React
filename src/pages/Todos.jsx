@@ -1,3 +1,4 @@
+import TodoFilters from '../components/TodoFilters'
 import TodoForm from '../components/TodoForm'
 import TodoList from '../components/TodoList'
 
@@ -8,6 +9,7 @@ export default function Todos() {
         <h1 className="text-3xl text-center">Todos of the day</h1>
 
         <div className="w-full sm:max-w-3/5 mx-auto">
+          <TodoFilters />
           <TodoForm />
           <TodoList />
         </div>
