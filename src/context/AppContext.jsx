@@ -1,30 +1,30 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
 // Step-1: Create Context
 const AppContext = createContext()
 
-const dummyTodos = [
-  {
-    id: 1,
-    text: 'Finish Product Page layout',
-    completed: false
-  },
-  {
-    id: 2,
-    text: 'Refactor Theme Context',
-    completed: true
-  },
-  {
-    id: 3,
-    text: 'Fix shadow bug on dark header',
-    completed: false
-  },
-  {
-    id: 4,
-    text: 'Add RHF to TodoForm',
-    completed: false
-  }
-]
+// const dummyTodos = [
+//   {
+//     id: 1,
+//     text: 'Finish Product Page layout',
+//     completed: false
+//   },
+//   {
+//     id: 2,
+//     text: 'Refactor Theme Context',
+//     completed: true
+//   },
+//   {
+//     id: 3,
+//     text: 'Fix shadow bug on dark header',
+//     completed: false
+//   },
+//   {
+//     id: 4,
+//     text: 'Add RHF to TodoForm',
+//     completed: false
+//   }
+// ]
 
 function ThemeProvider({ children }) {
   // 1. theme logic
@@ -83,6 +83,22 @@ function ThemeProvider({ children }) {
 
     return todo // 'all'
   })
+
+  // A) On Initial load fetching todos from localStorage and setting to our state todos
+
+  useEffect(() => {
+    const stored = localStorage.getItem('todos')
+
+    if (stored) {
+      setTodos(JSON.parse(stored))
+    }
+  }, [])
+
+  // B) On adding/deleting/updating/todos, add todos to localStorage for persistant data
+  useEffect(() => {
+    const todosStr = JSON.stringify(todos)
+    localStorage.setItem('todos', todosStr)
+  }, [todos])
 
   // App Valuew
   const appValues = {
