@@ -27,6 +27,7 @@ const dummyTodos = [
 ]
 
 function ThemeProvider({ children }) {
+  // 1. theme logic
   const [theme, setTheme] = useState('dark')
 
   function handleTheme() {
@@ -39,8 +40,8 @@ function ThemeProvider({ children }) {
     })
   }
 
-  // Todos Logic
-  const [todos, setTodos] = useState(dummyTodos)
+  // 2. todos Logic
+  const [todos, setTodos] = useState([])
 
   function toggleTodo(id) {
     const updatedTodos = todos.map(todo => {
@@ -68,12 +69,36 @@ function ThemeProvider({ children }) {
     })
   }
 
-  return (
-    <AppContext.Provider
-      value={{ theme, handleTheme, todos, setTodos, toggleTodo, deleteTodo, addTodo }}>
-      {children}
-    </AppContext.Provider>
-  )
+  // 3. filters logic
+  const [filter, setFilter] = useState('all')
+
+  const filteredTodos = todos.filter(todo => {
+    if (filter === 'completed') {
+      return todo.completed
+    }
+
+    if (filter === 'active') {
+      return todo.completed
+    }
+
+    return todo // 'all'
+  })
+
+  // App Valuew
+  const appValues = {
+    theme,
+    handleTheme,
+    todos,
+    setTodos,
+    toggleTodo,
+    deleteTodo,
+    addTodo,
+    filter,
+    setFilter,
+    filteredTodos
+  }
+
+  return <AppContext.Provider value={appValues}>{children}</AppContext.Provider>
 }
 
 export default ThemeProvider
