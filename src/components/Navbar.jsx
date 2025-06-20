@@ -1,9 +1,9 @@
 import { LuSun, LuMoon } from 'react-icons/lu'
-import { useTheme } from '../context/ThemeContext'
+import { useAppContext } from '../context/AppContext'
 import { Link } from 'react-router-dom'
 
 function Navbar() {
-  const { theme, handleTheme } = useTheme()
+  const { theme, handleTheme } = useAppContext()
 
   return (
     <header className="py-5 shadow-lg shadow-gray-300 dark:shadow-amber-300 transition-all">

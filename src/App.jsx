@@ -1,5 +1,5 @@
 import Navbar from './components/Navbar'
-import { useTheme } from './context/ThemeContext'
+import { useAppContext } from './context/AppContext'
 import HomePage from './pages/HomePage'
 import ProductDetail from './pages/ProductDetail'
 import ProductsPage from './pages/ProductsPage'
@@ -7,7 +7,7 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Todos from './pages/Todos'
 
 function App() {
-  const { theme } = useTheme()
+  const { theme } = useAppContext()
 
   return (
     <div
