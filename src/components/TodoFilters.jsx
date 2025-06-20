@@ -1,7 +1,7 @@
 import { useAppContext } from '../context/AppContext'
 
 function TodoFilters() {
-  const { filter, setFilters } = useAppContext()
+  const { filter, setFilter } = useAppContext()
 
   const filters = ['all', 'active', 'completed']
 
@@ -10,13 +10,14 @@ function TodoFilters() {
       {filters.map(f => {
         return (
           <button
+            onClick={() => setFilter(f)}
             className={`px-4 py-2 rounded ${
               f === filter
                 ? 'bg-amber-500 text-white'
                 : 'bg-gray-200 text-gray-800 dark:bg-zinc-600 dark:text-gray-100'
             } transition
             cursor-pointer`}>
-            {f}
+            {f.charAt(0).toUpperCase() + f.slice(1)}
           </button>
         )
       })}
